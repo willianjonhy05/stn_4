@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}Artistas{% endblock %}
+
+
+{% block content %}
+<main class="container">
+    <h1 class="text-start">Lista de Artistas</h1>
+    {% bootstrap_messages %}
+    <ul class="list-group list-group-flush">
+        {% for artista in artistas %}
+        <li class="list-group-item list-group-item-dark">
+
+            <img src="{{ artista.foto.url }}"
+                alt="" width="100">
+
+            <a href="{% url 'detalhar-artista' artista.id %}">{{artista.nome}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+
+{% endblock %}

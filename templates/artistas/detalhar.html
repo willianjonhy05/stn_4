@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}Detalhar Artista{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1 class="text-start">Sobre {{ artista.nome }}</h1>
+    <div class="row">
+        <div class="col">
+
+
+            <img src="{{ artista.foto.url }}"
+                alt="{{ artista.nome }}" width="550">
+        </div>
+        <div class="col">
+            <h4 class="text-start">Nome: </h4>
+            <p class="lead text-start">{{ artista.nome }}</p>
+            <h4 class="text-start">Data de Nascimento: </h4>
+            <p class="lead text-start">{{ artista.data_nasc }}</p>
+            <h4 class="text-start">Sexo: </h4>
+            <p class="lead text-start">{{ artista.sexo }}</p>
+            <h4 class="text-start">Idade: </h4>
+            <p class="lead text-start">{{ artista.idade }}</p>
+            <h4 class="text-start">Indicações ao Oscar: </h4>
+            <p class="lead text-start">{{ artista.indicacoes_oscar }}</p>
+            <h4 class="text-start">Prêmios do Oscar: </h4>
+            <p class="lead text-start">{{ artista.premios_oscar }}</p>
+
+        </div>
+        <div>
+            <h4 class="text-start">Biografia: </h4>
+            <p class="lead text-start">{{ artista.bio }}</p>
+        </div>
+        <hr>
+
+
+    </div>
+        <a class="btn btn-primary" href="{% url 'atualizar-artista' artista.id %}">Atualizar Artista</a>
+        <a class="btn btn-danger" href="{% url 'deletar-artista' artista.id %}">Apagar Artista</a>
+        
+</div>
+{% endblock %}

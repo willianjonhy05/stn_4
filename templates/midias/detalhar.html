@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}Detalhar Filme/Série{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1 class="text-start">{{ midia.tipo }}: {{ midia.titulo }}</h1>
+    <div class="row">
+        <div class="col">
+
+
+            <img src="{{ midia.foto.url }}"
+                alt="{{ midia.titulo }}" width="550">
+        </div>
+        <div class="col">
+            <h4 class="text-start">Título: </h4>
+            <p class="lead text-start">{{ midia.titulo }}</p>
+            <h4 class="text-start">Diretor: </h4>
+            <p class="lead text-start">{{ midia.diretor }}</p>
+            <h4 class="text-start">Ano: </h4>
+            <p class="lead text-start">{{ midia.ano }}</p>
+            <h4 class="text-start">Gênero: </h4>
+            <p class="lead text-start">{{ midia.genero }}</p>
+            <h4 class="text-start">Estúdios: </h4>
+            <p class="lead text-start">{{ midia.estudios }}</p>
+            
+
+        </div>
+        <div>
+            <h4 class="text-start">Sinopse: </h4>
+            <p class="lead text-start">{{ midia.sinopse }}</p>
+            <h4 class="text-start"><strong>Outros Detalhes</strong></h4>
+            {% if midia.tipo == 'Filme' %}
+            <h4 class="text-start">Volumes: </h4>
+            <p class="lead text-start">{{ midia.volumes }}</p>
+            {% else %}
+            <h4 class="text-start">Temporadas: </h4>
+            <p class="lead text-start">{{ midia.temporada }}</p>
+            <h4 class="text-start">Episódios: </h4>
+            <p class="lead text-start">{{ midia.episodios }}</p>
+            {% endif %}  
+
+        </div>
+        <hr>
+
+
+    </div>
+        <a class="btn btn-primary" href="{% url 'atualizar-midia' midia.id %}">Atualizar Filme/Série</a>
+        <a class="btn btn-danger" href="{% url 'deletar-midia' midia.id %}">Apagar Filme/Série</a>
+        
+</div>
+{% endblock %}

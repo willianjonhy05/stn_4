@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}Deletar{% endblock %}
+
+
+{% block content %}
+
+
+<main class="p-5 m-5">
+    <h1 class="text-center">Apagando Filme/Série</h1>
+    <form method="post">{% csrf_token %}
+    <p class="lead text-center">Tem certeza que deseja apagar todos os dados de "{{ object }}"?</p>
+    {{ form }}
+    <p class="lead text-center">
+    <input type="submit" value="Confirmar"></p>
+    </form>
+    
+</main>
+
+{% endblock %}
