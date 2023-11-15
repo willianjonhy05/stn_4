@@ -19,9 +19,11 @@
             <h4 class="text-start">Nome: </h4>
             <p class="lead text-start">{{ nerd.nome }}</p>
             <h4 class="text-start">Filme/Série: </h4>
-            <p class="lead text-start">{{ nerd.midia }}</p>
+            <p class="lead text-start"><a href="{% url 'detalhar-midia' nerd.midia.id %}">{{ nerd.midia }}</a></p>
             <h4 class="text-start">Interpreção de: </h4>
-            <p class="lead text-start">{{ nerd.interprete }}</p>
+            {% for interprete in nerd.interprete.all %}
+            <p class="lead text-start"><a href="{% url 'detalhar-artista' interprete.id %}">{{ interprete }}</a></p>
+            {% endfor %}
             <h4 class="text-start">Profissão: </h4>
             <p class="lead text-start">{{ nerd.profissao }}</p>
             

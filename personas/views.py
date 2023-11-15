@@ -61,6 +61,7 @@ class NerdUpdateView(UpdateView):
     model=Nerd
     template_name='nerds/atualizar.html'
     form_class=NerdForm
+    pk_url_kwarg='id'
 
     def get_success_url(self):
         messages.add_message(self.request, messages.SUCCESS, "Nerd atualizado com sucesso!")
@@ -70,6 +71,7 @@ class MidiaUpdateView(UpdateView):
     model=Midia
     template_name='midias/atualizar.html'
     form_class=MidiaForm
+    pk_url_kwarg='id'
 
     def get_success_url(self):
         messages.add_message(self.request, messages.SUCCESS, "Filme/Série atualizado com sucesso!")
@@ -79,6 +81,7 @@ class ArtistaUpdateView(UpdateView):
     model=Artista
     template_name='artistas/atualizar.html'
     form_class=ArtistaForm
+    pk_url_kwarg='id'
 
     def get_success_url(self):
         messages.add_message(self.request, messages.SUCCESS, "Artista atualizado com sucesso!")
@@ -116,13 +119,16 @@ class MidiaDetailView(DetailView):
     model=Midia
     template_name='midias/detalhar.html'
     context_object_name='midia'
+    pk_url_kwarg='id'
 
 class ArtistaDetailView(DetailView):
     model=Artista
     template_name='artistas/detalhar.html'
     context_object_name='artista'
+    pk_url_kwarg='id'
 
 class NerdDetailView(DetailView):
     model=Nerd
     template_name='nerds/detalhar.html'
     context_object_name='nerd'
+    pk_url_kwarg='id'
