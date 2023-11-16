@@ -7,7 +7,9 @@
 
 {% block content %}
 <div class="container">
+    <div class="mb-4">
     <h1 class="text-start">Sobre {{ nerd.nome }}</h1>
+    </div>
     <div class="row">
         <div class="col">
 
@@ -19,10 +21,10 @@
             <h4 class="text-start">Nome: </h4>
             <p class="lead text-start">{{ nerd.nome }}</p>
             <h4 class="text-start">Filme/Série: </h4>
-            <p class="lead text-start"><a href="{% url 'detalhar-midia' nerd.midia.id %}">{{ nerd.midia }}</a></p>
+            <p class="lead text-start"><a class="link-primary" href="{% url 'detalhar-midia' nerd.midia.id %}">{{ nerd.midia }}</a></p>
             <h4 class="text-start">Interpreção de: </h4>
             {% for interprete in nerd.interprete.all %}
-            <p class="lead text-start"><a href="{% url 'detalhar-artista' interprete.id %}">{{ interprete }}</a></p>
+            <p class="lead text-start"><a class="link-primary" href="{% url 'detalhar-artista' interprete.id %}">{{ interprete }}</a></p>
             {% endfor %}
             <h4 class="text-start">Profissão: </h4>
             <p class="lead text-start">{{ nerd.profissao }}</p>

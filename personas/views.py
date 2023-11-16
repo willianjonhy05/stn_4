@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView, DetailView
 from .models import Midia, Artista, Nerd
@@ -8,6 +9,16 @@ from django.urls import reverse
 # Create your views here.
 class Home(TemplateView):
     template_name = "home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['midias'] = Midia.objects.all()[:5]
+        context['artistas'] = Artista.objects.all()[:5]
+        context['nerds'] = Nerd.objects.all()[:5]
+
+        return context
+
+    
 
 class Sobre(TemplateView):
     template_name = "sobre.html"

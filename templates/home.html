@@ -6,13 +6,48 @@
 
 
 {% block content %}
-<main class="p-5 m-5">
-    <h1 class="text-center">Somos Todos Nerds</h1>
-    <p class="lead text-center">Somos apaixonados por quadrinhos, games, filmes de ficção, tecnologia. Quando
-        gostamos de algo nos aprofundamos bastante. Gostamos de resolver problemas e somos superinteligente e
-        perspicazes, temos um humor único. Podemos até ser um pouco diferentes, mas SOMOS TODOS NERDS!</p>
-    <p class="lead text-center">
-        <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Navegue</a>
-    </p>
-</main>
+<div class="container mt-5 mb-5">
+    <main class="">
+        <h1 class="text-center">NerdsCine</h1>
+        <p class="lead align-items-center">Somos apaixonados por quadrinhos, games, filmes de ficção, tecnologia. Quando
+            gostamos de algo nos aprofundamos bastante. Gostamos de resolver problemas e somos superinteligente e
+            perspicazes, temos um humor único. Podemos até ser um pouco diferentes, mas SOMOS TODOS NERDS!</p>
+        <p class="lead text-center">
+            <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Navegue</a>
+        </p>
+    </main>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+
+            <h1 class="mb-3">Séries/Filmes</h1>
+
+            {% for midia in midias %}
+            <p class="lead "><a
+                    class=" link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                    href="{% url 'detalhar-midia' midia.id %}">{{ midia.titulo }}</a></p>
+            {% endfor %}
+
+        </div>
+        <div class="col">
+            <h1 class="mb-3">Artistas</h1>
+            {% for artista in artistas %}
+            <p class="lead "><a
+                    class=" link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                    href="{% url 'detalhar-artista' artista.id %}">{{ artista.nome }}</a></p>
+            {% endfor %}
+
+        </div>
+        <div class="col">
+            <h1 class="mb-3">Nerds</h1>
+            {% for nerd in nerds %}
+            <p class="lead "><a
+                    class=" link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                    href="{% url 'detalhar-nerd' nerd.id %}">{{ nerd.nome }}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}
