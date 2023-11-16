@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}Blog - Ultimos Posts{% endblock %}
+
+
+{% block content %}
+{% for post in posts %}
+<div class="container mt-3">
+    <div class="card mb-3">
+        <a href="{{% url 'detalhar-post' post.id %}}"><img src="{{ post.capa.url }}" class="card-img-top"
+                alt="{{ post.titulo }}"></a>
+        <div class="card-body">
+            <h5 class="card-title">{{ post.titulo }}</h5>
+            <p class="card-text">{{ post.subtitulo }}</p>
+            <p class="card-text"><small class="text-body-secondary">Data: {{ post.data_pub }}</small></p>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
+
+
+{% endblock %}

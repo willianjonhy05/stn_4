@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}Lista de Post{% endblock %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+    {% for post in posts %}
+    <div>
+        <a href="{{% url 'detalhar-post' post.id %}}"><img src="{{ post.capa.url }}" alt="{{ post.titulo }}"
+                width="300"></a>
+        <a href="{{% url 'detalhar-post' post.id %}}">
+            <h1 class="text-start">{{ post.titulo }}</h1>
+        </a>
+
+    </div>
+    <hr>
+    <div>
+        <a class="btn btn-primary" href="{% url 'atualizar-post' post.id %}">Atualizar Post</a>
+        <a class="btn btn-danger" href="{% url 'apagar-post' post.id %}">Apagar Post</a>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
